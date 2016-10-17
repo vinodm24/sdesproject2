@@ -1,0 +1,2 @@
+http://pykriging.com/
+https://github.com/capaulson/pyKriging
