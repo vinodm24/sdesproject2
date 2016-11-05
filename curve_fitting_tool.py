@@ -46,14 +46,14 @@ class simpleapp_tk(Tkinter.Tk):
 
         self.entryVariable = Tkinter.StringVar()
         self.entry = Tkinter.Entry(self.window2,textvariable=self.entryVariable)
-        self.entry.grid(row=0,column=0, columnspan=2, pady=5, padx=5)
-        self.entryVariable.set("Please choose a file using import button in the right")
+        self.entry.grid(row=0,column=0, sticky='NSEW',columnspan=2, pady=5, padx=5)
+        self.entryVariable.set("Please choose a file using import button")
         
         import_data = Button(self.window2,text="Import Data",command=self.OpenFile)
         import_data.grid(row=1,column=2, rowspan=2, sticky='NSEW')
 
-        quit = Button(self.window2, text="quit",command = self.window2.destroy, height = 1, width = 10)
-        quit.grid(row=1, column=0, sticky='E',pady=5, padx=5)
+        back = Button(self.window2, text="Back",command = self.window2.destroy, height = 1, width = 10)
+        back.grid(row=1, column=0, sticky='E',pady=5, padx=5)
 
         next = Button(self.window2,text="Next",command=combine_funcs(self.Window3,self.window2.destroy), height = 1, width = 10)
         next.grid(row=1, column=1, sticky='E',pady=5, padx=5)
@@ -64,8 +64,8 @@ class simpleapp_tk(Tkinter.Tk):
         self.window3.transient(self)
         next = Button(self.window3,text="Next",command=combine_funcs(self.Window4,self.window3.destroy))
         next.grid(row=0, column=1, sticky='E',pady=5, padx=5)
-        close = Button(self.window3,text="CLOSE",command = self.window3.destroy)
-        close.grid(row=0, column=0, sticky='E',pady=5, padx=5)
+        back = Button(self.window3,text="Back",command = combine_funcs(self.window3.destroy,self.Window2))
+        back.grid(row=0, column=0, sticky='E',pady=5, padx=5)
         #self.topButton.pack()
 
     def Window4(self):
@@ -73,8 +73,8 @@ class simpleapp_tk(Tkinter.Tk):
         self.window4.title("Model")
         save = Button(self.window4,text="Next",command=self.Window4)
         save.grid(row=0,column=1,sticky='E', pady=5, padx=5)
-        quit = Button(self.window4,text="Quit",command = self.window4.destroy)
-        quit.grid(row=0, column=0, sticky='E',pady=5, padx=5)
+        back = Button(self.window4,text="Back",command = self.window4.destroy)
+        back.grid(row=0, column=0, sticky='E',pady=5, padx=5)
               
 if __name__ == "__main__":
     app = simpleapp_tk(None)
